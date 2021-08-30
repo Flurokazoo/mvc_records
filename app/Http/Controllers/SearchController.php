@@ -30,17 +30,17 @@ class SearchController extends Controller
             $albums = Album::where('name', 'LIKE', '%' . $req->body . '%')
                 ->orWhere('artist', 'LIKE', '%' . $req->body . '%')
                 ->orWhere('year', 'LIKE', '%' . $req->body . '%')
-                ->paginate(12)
-                ->whereIn('id', $ids);
+                ->where('id', $ids[0])
+                ->get();
         } else if($req->body) {
             $albums = Album::where('name', 'LIKE', '%' . $req->body . '%')
                 ->orWhere('artist', 'LIKE', '%' . $req->body . '%')
                 ->orWhere('year', 'LIKE', '%' . $req->body . '%')
-                ->paginate(12);
+                ->get();
         } 
 
         if(!$req->tag && !$req->body){
-            $albums = Album::paginate(12);
+            $albums = Album::get();
         }
 
         return view('dashboard', [

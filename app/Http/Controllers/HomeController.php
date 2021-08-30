@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         {     
-            $albums = Album::inRandomOrder()->paginate(12);
+            $albums = Album::inRandomOrder()->paginate(8);
             //dd($tags);
             return view('home', [
                 'albums' => $albums

@@ -58,6 +58,6 @@ class User extends Authenticatable
 
     public function canPost()
     {
-        return $this->likes->count() >= 2 ? true : false;
+        return $this->likes->count() >= 0 ? true : false;
     }
 }

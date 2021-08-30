@@ -14,8 +14,8 @@ class DashboardController extends Controller
         $this->middleware(['active']);
     }
     public function index()
-    {     
-        $albums = Album::paginate(12);
+    {
+        $albums = Album::orderBy('artist')->get();
         $tags = Tag::get();
         //dd($tags);
         return view('dashboard', [
