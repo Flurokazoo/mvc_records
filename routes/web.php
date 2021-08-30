@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AdminPanelController;
 
+use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\ReviewLikeController;
 use App\Http\Controllers\RegistrationController;
 
@@ -43,8 +44,6 @@ Route::delete('/admin/{user}', [AdminPanelController::class, 'destroy'])->name('
 
 Route::post('/admin', [TagController::class, 'post'])->name('admin.tag');
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');

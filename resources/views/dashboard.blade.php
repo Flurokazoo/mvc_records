@@ -3,7 +3,11 @@
 @section('content')
 
     @if (auth()->user()->admin)
-        {{ auth()->user()->isAuth }}
+        <div class="flex justify-center mt-8">
+            <div class="w-2/3">
+                <h1 class="text-white text-5xl text-center block">Add a new record!</h1>
+            </div>
+        </div>
         <div class="flex justify-center mt-8">
             <div class="w-6/12 p-4 bg-white rounded-lg">
                 <form action="{{ route('dashboard') }}" method="post" enctype="multipart/form-data">
@@ -67,6 +71,11 @@
         </div>
     @endif
     <div class="flex justify-center mt-8">
+        <div class="w-2/3">
+            <h1 class="text-white text-5xl text-center block">Search records:</h1>
+        </div>
+    </div>
+    <div class="flex justify-center mt-8">
         <div class="w-6/12 p-4 bg-white rounded-lg">
             <form action="{{ route('dashboard.search') }}" method="post">
                 @csrf
@@ -98,6 +107,11 @@
         </div>
     </div>
     @if ($albums->count())
+        <div class="flex justify-center mt-8">
+            <div class="w-2/3">
+                <h1 class="text-white text-5xl text-center block">List of all records:</h1>
+            </div>
+        </div>
 
         <div class="flex justify-center mt-8">
             <div class="w-8/12 bg-none rounded-lg grid text-center grid-cols-4 gap-4">
@@ -117,6 +131,12 @@
         </div>
 
     @else
+        <div class="flex justify-center mt-8">
+            <div class="w-2/3">
+                <h1 class="text-white text-5xl text-center block">Unfortunately there are no records in the database yet...
+                </h1>
+            </div>
+        </div>
 
     @endif
 @endsection

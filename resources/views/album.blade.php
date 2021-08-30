@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="flex justify-center mt-8">
+        <div class="w-8/12 p-4 rounded-lg">
+            <a href="{{ route('dashboard') }}" class="bg-blue-500 w-full text-white rounded p-4"">Back to dashboard</a></li>
+        </div>
+    </div>
+    <div class="flex justify-center mt-8">
 
         <div class="w-8/12 rounded-lg grid text-center grid-cols-2 gap-4 bg-gray-200">
             <div class="w-full rounded-md p-4 justify-center m-4">
@@ -76,8 +81,9 @@
                                     <button type="submit" class="rounded text-white bg-red-500 p-2 pl-3 pr-3 mt-2">Delete
                                         review</button>
                                 </form>
-                                <a href="{{route('review.edit', $review)}}" class="inline-block rounded text-white bg-yellow-500 p-2 pl-3 pr-3 mt-2">Edit Review</a>
-                                
+                                <a href="{{ route('review.edit', $review) }}"
+                                    class="inline-block rounded text-white bg-yellow-500 p-2 pl-3 pr-3 mt-2">Edit Review</a>
+
                             @endif
 
                         </div>
